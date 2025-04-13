@@ -3,130 +3,154 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lift Design Preview</title>
+  <title>City Lifts & Engineering - Layered Preview</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      height: 100vh;
+      margin: 0;
+      background: #fff;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 26px;
     }
 
     .container {
       display: flex;
-      width: 100%;
-    }
-
-    .right-panel {
-      width: 300px;
-      background-color: #f4f4f4;
       padding: 20px;
-      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     }
 
-    .left-panel {
+    .preview-area {
       flex: 1;
       position: relative;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      width: 400px;
+      height: 600px;
+      margin: auto;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
     }
 
-    .left-panel img {
+    .preview-area img {
       position: absolute;
-      width: 60%;
-      height: auto;
-      object-fit: contain;
-      display: none;
-    }
-
-    .left-panel .shape-bg {
-      display: block !important;
-      opacity: 0.5;
-      z-index: 0;
-    }
-
-    #ceilingImage { z-index: 1; }
-    #bodyImage { z-index: 2; }
-    #copImage { z-index: 3; }
-    #handleImage { z-index: 4; }
-    #floorImage { z-index: 5; }
-
-    .right-panel h2 {
-      margin-top: 0;
-    }
-
-    .button-group {
-      margin-bottom: 15px;
-    }
-
-    button {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      font-size: 14px;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .controls {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .controls h4 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .controls .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      gap: 10px;
+    }
+
+    .controls .grid img {
+      width: 80px;
+      height: 80px;
       cursor: pointer;
-      border: none;
-      background-color: #007bff;
-      color: white;
-      border-radius: 4px;
-      transition: 0.3s ease;
+      border: 2px solid transparent;
     }
 
-    button:hover {
-      background-color: #0056b3;
+    .controls .grid img:hover {
+      border-color: #007bff;
+      transform: scale(1.05);
     }
 
-    .reset-button {
-      background-color: #dc3545;
-    }
-
-    .reset-button:hover {
-      background-color: #a71d2a;
+    .footer {
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="left-panel" id="designPreview">
-      <img src="images/image.png" class="shape-bg" />
-      <img id="ceilingImage" />
-      <img id="bodyImage" />
-      <img id="copImage" />
-      <img id="handleImage" />
-      <img id="floorImage" />
-    </div>
 
-    <div class="right-panel">
-      <h2>Select Components</h2>
-      <div class="button-group">
-        <button onclick="applyImage('bodyImage', 'images/body.png')">Body</button>
-        <button onclick="applyImage('handleImage', 'images/handle.png')">Handle</button>
-        <button onclick="applyImage('ceilingImage', 'images/ceiling.png')">Ceiling</button>
-        <button onclick="applyImage('copImage', 'images/cop.png')">COP</button>
-        <button onclick="applyImage('floorImage', 'images/floor.png')">Floor</button>
-      </div>
-      <button class="reset-button" onclick="resetImages()">Reset Design</button>
-    </div>
+<header>City Lifts & Engineering - 3D Preview</header>
+
+<div class="container">
+  <!-- Preview Area -->
+  <div class="preview-area" id="previewArea">
+    <img src="images/base-shape.png" alt="Base Shape" id="base" />
+    <img src="" alt="Body Layer" id="bodyLayer" />
+    <img src="" alt="Ceiling Layer" id="ceilingLayer" />
+    <img src="" alt="Cop Layer" id="copLayer" />
+    <img src="" alt="Handle Layer" id="handleLayer" />
+    <img src="" alt="Floor Layer" id="floorLayer" />
   </div>
 
-  <script>
-    function applyImage(layerId, src) {
-      const layer = document.getElementById(layerId);
-      layer.src = src;
-      layer.style.display = 'block';
-    }
+  <!-- Controls -->
+  <div class="controls">
+    <!-- Body -->
+    <h4>Body</h4>
+    <div class="grid">
+      <img src="Body/bd-1-i.jpg" onclick="updateLayer('bodyLayer', this.src)">
+      <img src="Body/bd-2-i.jpg" onclick="updateLayer('bodyLayer', this.src)">
+      <img src="Body/bd-3-i.jpg" onclick="updateLayer('bodyLayer', this.src)">
+      <img src="Body/bd-4-i.jpg" onclick="updateLayer('bodyLayer', this.src)">
+    </div>
 
-    function resetImages() {
-      const ids = ['bodyImage', 'handleImage', 'ceilingImage', 'copImage', 'floorImage'];
-      ids.forEach(id => {
-        const img = document.getElementById(id);
-        img.src = '';
-        img.style.display = 'none';
-      });
-    }
-  </script>
+    <!-- Ceiling -->
+    <h4>Ceiling</h4>
+    <div class="grid">
+      <img src="Ceiling/cd-1-i.jpg" onclick="updateLayer('ceilingLayer', this.src)">
+      <img src="Ceiling/cd-2-i.jpg" onclick="updateLayer('ceilingLayer', this.src)">
+      <img src="Ceiling/cd-3-i.jpg" onclick="updateLayer('ceilingLayer', this.src)">
+      <img src="Ceiling/cd-4-i.jpg" onclick="updateLayer('ceilingLayer', this.src)">
+    </div>
+
+    <!-- Cop -->
+    <h4>Cop</h4>
+    <div class="grid">
+      <img src="Cop/CP-2-i.jpg" onclick="updateLayer('copLayer', this.src)">
+      <img src="Cop/CP-3-i.jpg" onclick="updateLayer('copLayer', this.src)">
+      <img src="Cop/CP-4-i.jpg" onclick="updateLayer('copLayer', this.src)">
+    </div>
+
+    <!-- Handle -->
+    <h4>Handle</h4>
+    <div class="grid">
+      <img src="Handle/Hd-1-i.jpg" onclick="updateLayer('handleLayer', this.src)">
+      <img src="Handle/Hd-2-i.jpg" onclick="updateLayer('handleLayer', this.src)">
+      <img src="Handle/Hd-3-i.jpg" onclick="updateLayer('handleLayer', this.src)">
+      <img src="Handle/Hd-4-i.jpg" onclick="updateLayer('handleLayer', this.src)">
+    </div>
+
+    <!-- Floor -->
+    <h4>Floor</h4>
+    <div class="grid">
+      <img src="Floor/fd-1-i.jpg" onclick="updateLayer('floorLayer', this.src)">
+      <img src="Floor/fd-2-i.jpg" onclick="updateLayer('floorLayer', this.src)">
+      <img src="Floor/fd-3-i.jpg" onclick="updateLayer('floorLayer', this.src)">
+      <img src="Floor/fd-4-i.jpg" onclick="updateLayer('floorLayer', this.src)">
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2025 City Lifts & Engineering. All rights reserved.
+</div>
+
+<script>
+  function updateLayer(layerId, src) {
+    document.getElementById(layerId).src = src;
+  }
+</script>
+
 </body>
 </html>
