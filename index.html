@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>City Lifts & Engineering</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff; }
+    header { background: #003366; color: white; padding: 10px 20px; text-align: center; font-size: 24px; }
+    nav { background: #f4f4f4; padding: 10px 20px; text-align: center; }
+    .container { display: flex; padding: 20px; }
+    .left-panel { flex: 1; display: flex; justify-content: center; align-items: center; border-right: 1px solid #ccc; }
+    .left-panel img { max-width: 90%; max-height: 350px; border: 2px solid #ccc; border-radius: 5px; }
+    .right-panel { flex: 2; padding: 0 20px; }
+    .section { margin-bottom: 20px; }
+    .section h4 { margin-bottom: 10px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 80px); gap: 10px; }
+    .grid img { width: 80px; height: 80px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
+    .grid img:hover { transform: scale(1.1); border-color: #007bff; }
+    .buttons { text-align: center; margin-top: 30px; }
+    .buttons button { margin: 5px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .footer { background: #f4f4f4; padding: 20px; text-align: center; margin-top: 40px; font-size: 14px; color: #555; }
+  </style>
+</head>
+<body>
+
+<header>City Lifts & Engineering</header>
+<nav>Products | About Us | Contact</nav>
+
+<div class="container">
+  <div class="left-panel">
+    <img id="previewImage" src="images/bd-1-i.jpg" alt="Preview Image" />
+  </div>
+
+  <div class="right-panel">
+    <!-- Ceiling Section -->
+    <div class="section" id="ceiling-section">
+      <h4>Ceiling:</h4>
+      <div class="grid">
+        <img src="images/bd-1-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-2-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-3-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-4-i.jpg" onclick="showPreview(this.src)" />
+      </div>
+    </div>
+
+    <!-- Body Section -->
+    <div class="section" id="body-section">
+      <h4>Body:</h4>
+      <div class="grid">
+        <img src="images/bd-1-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-2-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-3-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-4-i.jpg" onclick="showPreview(this.src)" />
+      </div>
+    </div>
+
+    <!-- COP Section -->
+    <div class="section" id="cop-section">
+      <h4>Cop:</h4>
+      <div class="grid">
+        <img src="images/bd-1-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-2-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-3-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-4-i.jpg" onclick="showPreview(this.src)" />
+      </div>
+    </div>
+
+    <!-- Handle Section -->
+    <div class="section" id="handle-section">
+      <h4>Handle:</h4>
+      <div class="grid">
+        <img src="images/bd-1-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-2-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-3-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-4-i.jpg" onclick="showPreview(this.src)" />
+      </div>
+    </div>
+
+    <!-- Floor Section -->
+    <div class="section" id="floor-section">
+      <h4>Floor:</h4>
+      <div class="grid">
+        <img src="images/bd-1-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-2-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-3-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-4-i.jpg" onclick="showPreview(this.src)" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="buttons">
+  <button onclick="changePreview('images/bd-1-i.jpg')">3D View Cabin One</button>
+  <button onclick="changePreview('images/bd-2-i.jpg')">3D View Cabin Two</button>
+  <button onclick="changePreview('images/bd-3-i.jpg')">3D View Cabin Three</button>
+  <button onclick="changePreview('images/bd-4-i.jpg')">3D View Cabin Four</button>
+  <button onclick="changePreview('images/bd-1-i.jpg')">3D View Cabin Five</button>
+</div>
+
+<div class="footer">
+  © 2025 City Lifts & Engineering. All rights reserved.
+</div>
+
+<script>
+  function showPreview(src) {
+    document.getElementById("previewImage").src = src;
+  }
+
+  function changePreview(src) {
+    document.getElementById("previewImage").src = src;
+  }
+</script>
+
+</body>
+</html>
+
+
+
