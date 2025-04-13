@@ -9,17 +9,53 @@
     header { background: #003366; color: white; padding: 10px 20px; text-align: center; font-size: 24px; }
     nav { background: #f4f4f4; padding: 10px 20px; text-align: center; }
     .container { display: flex; padding: 20px; }
-    .left-panel { flex: 1; display: flex; justify-content: center; align-items: center; border-right: 1px solid #ccc; }
-    .left-panel img { max-width: 90%; max-height: 350px; border: 2px solid #ccc; border-radius: 5px; }
+    .left-panel {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid #ccc;
+      position: relative;
+      width: 100%;
+      height: 400px;
+      background-color: #f0f0f0;
+    }
+    .left-panel img {
+      position: absolute;
+      max-width: 100%;
+      max-height: 100%;
+      display: none;
+    }
     .right-panel { flex: 2; padding: 0 20px; }
     .section { margin-bottom: 20px; }
     .section h4 { margin-bottom: 10px; }
     .grid { display: grid; grid-template-columns: repeat(4, 80px); gap: 10px; }
-    .grid img { width: 80px; height: 80px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
+    .grid img {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 2px solid transparent;
+    }
     .grid img:hover { transform: scale(1.1); border-color: #007bff; }
     .buttons { text-align: center; margin-top: 30px; }
-    .buttons button { margin: 5px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .footer { background: #f4f4f4; padding: 20px; text-align: center; margin-top: 40px; font-size: 14px; color: #555; }
+    .buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .footer {
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -28,74 +64,76 @@
 <nav>Products | About Us | Contact</nav>
 
 <div class="container">
-  <div class="left-panel">
-    <img id="previewImage" src="Body/bd-1-i.jpg" alt="Preview Image" />
+  <div class="left-panel" id="designPreview">
+    <img id="ceilingImage" />
+    <img id="bodyImage" />
+    <img id="copImage" />
+    <img id="handleImage" />
+    <img id="floorImage" />
   </div>
 
   <div class="right-panel">
-
     <!-- Body Section -->
-    <div class="section" id="body-section">
+    <div class="section">
       <h4>Body:</h4>
       <div class="grid">
-        <img src="Body/bd-1-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Body/bd-2-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Body/bd-3-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Body/bd-4-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/bd-1-i.jpg" onclick="applyImage('bodyImage', this.src)" />
+        <img src="images/bd-2-i.jpg" onclick="applyImage('bodyImage', this.src)" />
+        <img src="images/bd-3-i.jpg" onclick="applyImage('bodyImage', this.src)" />
+        <img src="images/bd-4-i.jpg" onclick="applyImage('bodyImage', this.src)" />
       </div>
     </div>
 
     <!-- Ceiling Section -->
-    <div class="section" id="ceiling-section">
+    <div class="section">
       <h4>Ceiling:</h4>
       <div class="grid">
-        <img src="Ceiling/cd-1-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Ceiling/cd-2-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Ceiling/cd-3-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Ceiling/cd-4-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/cd-1-i.jpg" onclick="applyImage('ceilingImage', this.src)" />
+        <img src="images/cd-2-i.jpg" onclick="applyImage('ceilingImage', this.src)" />
+        <img src="images/cd-3-i.jpg" onclick="applyImage('ceilingImage', this.src)" />
+        <img src="images/cd-4-i.jpg" onclick="applyImage('ceilingImage', this.src)" />
       </div>
     </div>
 
     <!-- Cop Section -->
-    <div class="section" id="cop-section">
+    <div class="section">
       <h4>Cop:</h4>
       <div class="grid">
-        <img src="Cop/CP-2-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Cop/CP-3-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Cop/CP-4-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/CP-2-i.jpg" onclick="applyImage('copImage', this.src)" />
+        <img src="images/CP-3-i.jpg" onclick="applyImage('copImage', this.src)" />
+        <img src="images/CP-4-i.jpg" onclick="applyImage('copImage', this.src)" />
       </div>
     </div>
 
     <!-- Handle Section -->
-    <div class="section" id="handle-section">
+    <div class="section">
       <h4>Handle:</h4>
       <div class="grid">
-        <img src="Handle/Hd-1-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Handle/Hd-2-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Handle/Hd-3-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Handle/Hd-4-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/Hd-1-i.jpg" onclick="applyImage('handleImage', this.src)" />
+        <img src="images/Hd-2-i.jpg" onclick="applyImage('handleImage', this.src)" />
+        <img src="images/Hd-3-i.jpg" onclick="applyImage('handleImage', this.src)" />
+        <img src="images/Hd-4-i.jpg" onclick="applyImage('handleImage', this.src)" />
       </div>
     </div>
 
     <!-- Floor Section -->
-    <div class="section" id="floor-section">
+    <div class="section">
       <h4>Floor:</h4>
       <div class="grid">
-        <img src="Floor/fd-1-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Floor/fd-2-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Floor/fd-3-i.jpg" onclick="showPreview(this.src)" />
-        <img src="Floor/fd-4-i.jpg" onclick="showPreview(this.src)" />
+        <img src="images/fd-1-i.jpg" onclick="applyImage('floorImage', this.src)" />
+        <img src="images/fd-2-i.jpg" onclick="applyImage('floorImage', this.src)" />
+        <img src="images/fd-3-i.jpg" onclick="applyImage('floorImage', this.src)" />
+        <img src="images/fd-4-i.jpg" onclick="applyImage('floorImage', this.src)" />
       </div>
     </div>
-  </div>
-</div>
 
-<div class="buttons">
-  <button onclick="changePreview('Body/bd-1-i.jpg')">3D View Cabin One</button>
-  <button onclick="changePreview('Body/bd-2-i.jpg')">3D View Cabin Two</button>
-  <button onclick="changePreview('Body/bd-3-i.jpg')">3D View Cabin Three</button>
-  <button onclick="changePreview('Body/bd-4-i.jpg')">3D View Cabin Four</button>
-  <button onclick="changePreview('Body/bd-1-i.jpg')">3D View Cabin Five</button>
+    <!-- Reset Button -->
+    <div style="text-align: center; margin-top: 30px;">
+      <button onclick="resetImages()" style="padding: 10px 20px; font-size: 16px; background-color: #d9534f; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Reset Design
+      </button>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
@@ -103,12 +141,19 @@
 </div>
 
 <script>
-  function showPreview(src) {
-    document.getElementById("previewImage").src = src;
+  function applyImage(layerId, src) {
+    const layer = document.getElementById(layerId);
+    layer.src = src;
+    layer.style.display = 'block';
   }
 
-  function changePreview(src) {
-    document.getElementById("previewImage").src = src;
+  function resetImages() {
+    const ids = ['bodyImage', 'handleImage', 'ceilingImage', 'copImage', 'floorImage'];
+    ids.forEach(id => {
+      const img = document.getElementById(id);
+      img.src = '';
+      img.style.display = 'none';
+    });
   }
 </script>
 
